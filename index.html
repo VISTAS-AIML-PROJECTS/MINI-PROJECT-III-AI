@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Study Portal</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- ==================================================
+         SIDEBAR
+    =================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <span class="brand-icon">
+                📘
+            </span>
+
+            <div class="brand-title">
+
+                YOUR STUDY<br>
+                PORTAL
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             SUBJECTS
+        =================================================== -->
+
+        <div class="sidebar-section">
+
+            <div class="sidebar-label">
+
+                Switch Subject
+
+            </div>
+
+
+            <div
+                class="subject-select"
+                id="subjectSelect"
+            >
+
+                <span id="currentSubject">
+
+                    No Subject Selected
+
+                </span>
+
+
+                <span class="chevron">
+
+                    ▾
+
+                </span>
+
+            </div>
+
+
+            <div
+                class="subject-list"
+                id="subjectList"
+            >
+
+                <!-- Subjects populated by JavaScript -->
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             STUDY MATERIALS
+        =================================================== -->
+
+        <div class="sidebar-section">
+
+            <div class="sidebar-label">
+
+                Study Materials
+
+            </div>
+
+
+            <button
+                class="upload-btn"
+                id="uploadBtn"
+            >
+
+                📁
+
+                Upload Study Materials
+
+            </button>
+
+
+            <div
+                class="material-status"
+                id="materialStatus"
+            >
+
+                No study materials uploaded.
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             PREVIOUS TESTS
+        =================================================== -->
+
+        <div class="sidebar-section">
+
+            <div class="sidebar-label">
+
+                Previous Tests
+
+            </div>
+
+
+            <div
+                class="test-list"
+                id="testList"
+            >
+
+                <!-- Tests populated by JavaScript -->
+
+            </div>
+
+
+            <button
+                class="diagnostic-btn"
+                id="diagnosticBtn"
+            >
+
+                <span class="diagnostic-icon">
+
+                    ↻
+
+                </span>
+
+
+                Take New Diagnostic
+
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ==================================================
+         MAIN AREA
+    =================================================== -->
+
+    <main class="main">
+
+
+        <!-- ==================================================
+             TABS
+        =================================================== -->
+
+        <nav class="tabs">
+
+
+            <button
+                class="tab"
+                data-tab="study"
+            >
+
+                AI Study Zone
+
+            </button>
+
+
+            <button
+                class="tab active"
+                data-tab="progress"
+            >
+
+                Progress Tracker
+
+            </button>
+
+
+        </nav>
+
+
+
+        <!-- ==================================================
+             PROCESSING OVERLAY
+        =================================================== -->
+
+        <div
+            class="processing-overlay"
+            id="processingOverlay"
+        >
+
+
+            <div class="processing-card">
+
+
+                <div
+                    class="processing-title"
+                    id="processingTitle"
+                >
+
+                    Processing
+
+                </div>
+
+
+                <div
+                    class="processing-message"
+                    id="processingMessage"
+                >
+
+                    Please wait...
+
+                </div>
+
+
+                <div class="processing-bar">
+
+
+                    <div
+                        class="processing-bar-fill"
+                        id="processingBarFill"
+                    ></div>
+
+
+                </div>
+
+
+                <div class="processing-bottom">
+
+
+                    <span>
+
+                        Processing
+
+                    </span>
+
+
+                    <span
+                        id="processingPercent"
+                    >
+
+                        0%
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             PROGRESS TRACKER
+        =================================================== -->
+
+        <div
+            class="content"
+            id="progressContent"
+        >
+
+
+            <!-- SUBJECT TITLE -->
+
+            <h1
+                class="section-title"
+                id="subjectHeading"
+            >
+
+                NO SUBJECT SELECTED
+
+            </h1>
+
+
+
+            <!-- ==================================================
+                 SKILL LEVELS
+            =================================================== -->
+
+            <div class="card ring-card">
+
+
+                <div
+                    class="ring-grid"
+                    id="ringGrid"
+                >
+
+                    <!-- Skill rings populated by JavaScript -->
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 TOPIC STRENGTHS
+            =================================================== -->
+
+            <div class="card">
+
+
+                <div class="card-heading">
+
+                    Topic Strengths &amp; Weaknesses
+
+                </div>
+
+
+                <div
+                    class="bar-grid"
+                    id="barGrid"
+                >
+
+                    <!-- Topic bars populated by JavaScript -->
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 GRADE TREND
+            =================================================== -->
+
+            <div class="card">
+
+
+                <div class="card-heading-row">
+
+
+                    <div
+                        class="card-heading"
+                        id="trendHeading"
+                    >
+
+                        Grade Trend
+
+                    </div>
+
+
+                    <div class="legend">
+
+
+                        <span
+                            class="legend-swatch"
+                        ></span>
+
+
+                        Test Score
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="trend-wrap">
+
+
+                    <svg
+                        id="trendSvg"
+                        viewBox="0 0 760 220"
+                        preserveAspectRatio="none"
+                    >
+
+                    </svg>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- FOOTER -->
+
+            <div class="footer-note">
+
+                Local Study Assistant v1.0 · Powered by Ollama
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             AI STUDY ZONE
+        =================================================== -->
+
+        <div
+            class="content"
+            id="studyContent"
+            style="display: none;"
+        >
+
+
+            <!-- JavaScript builds the Study Zone here -->
+
+        </div>
+
+
+
+        <!-- ==================================================
+             DIAGNOSTIC CONTENT
+        =================================================== -->
+
+        <div
+            class="diagnostic-content"
+            id="diagnosticContent"
+            style="display: none;"
+        >
+
+
+            <div class="diagnostic-header">
+
+
+                <div>
+
+
+                    <div class="diagnostic-label">
+
+                        DIAGNOSTIC TEST
+
+                    </div>
+
+
+                    <h1
+                        class="diagnostic-title"
+                        id="diagnosticTitle"
+                    >
+
+                        DIAGNOSTIC
+
+                    </h1>
+
+
+                </div>
+
+
+                <div
+                    class="question-counter"
+                    id="questionCounter"
+                >
+
+                    Question 1 of 10
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- QUESTION PROGRESS -->
+
+            <div class="question-progress">
+
+
+                <div
+                    class="question-progress-fill"
+                    id="questionProgressFill"
+                ></div>
+
+
+            </div>
+
+
+
+            <!-- QUESTION -->
+
+            <div class="card question-card">
+
+
+                <div
+                    class="question-topic"
+                    id="questionTopic"
+                >
+
+                    General
+
+                </div>
+
+
+                <div
+                    class="question-text"
+                    id="questionText"
+                >
+
+                    Loading question...
+
+                </div>
+
+
+                <div
+                    class="options-container"
+                    id="optionsContainer"
+                >
+
+                    <!-- Options populated by JavaScript -->
+
+                </div>
+
+
+                <div class="question-navigation">
+
+
+                    <button
+                        class="secondary-btn"
+                        id="previousQuestionBtn"
+                    >
+
+                        Previous
+
+                    </button>
+
+
+                    <button
+                        class="primary-btn"
+                        id="nextQuestionBtn"
+                    >
+
+                        Next
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="diagnostic-footer">
+
+                Your answers are saved while you complete the test.
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             DIAGNOSTIC RESULTS
+        =================================================== -->
+
+        <div
+            class="result-content"
+            id="resultContent"
+            style="display: none;"
+        >
+
+
+            <div class="card result-card">
+
+
+                <div class="diagnostic-label">
+
+                    DIAGNOSTIC COMPLETE
+
+                </div>
+
+
+                <h1 class="result-title">
+
+                    Your Results
+
+                </h1>
+
+
+                <div
+                    class="result-score"
+                    id="resultScore"
+                >
+
+                    0%
+
+                </div>
+
+
+                <div
+                    class="result-fraction"
+                    id="resultFraction"
+                >
+
+                    0 / 0 correct
+
+                </div>
+
+
+
+                <!-- RESULT SECTIONS -->
+
+                <div class="result-sections">
+
+
+                    <!-- STRONG AREAS -->
+
+                    <div class="result-section">
+
+
+                        <div class="result-section-title">
+
+                            Strong Areas
+
+                        </div>
+
+
+                        <div
+                            class="result-area"
+                            id="strongAreas"
+                        >
+
+                            No data yet.
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- WEAK AREAS -->
+
+                    <div class="result-section">
+
+
+                        <div class="result-section-title">
+
+                            Needs Improvement
+
+                        </div>
+
+
+                        <div
+                            class="result-area"
+                            id="weakAreas"
+                        >
+
+                            No data yet.
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- RESULT BUTTONS -->
+
+                <div class="result-actions">
+
+
+                    <button
+                        class="secondary-btn"
+                        id="backToProgressBtn"
+                    >
+
+                        Back to Progress
+
+                    </button>
+
+
+                    <button
+                        class="primary-btn"
+                        id="newDiagnosticBtn"
+                    >
+
+                        Take Another Diagnostic
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+=================================================== -->
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
