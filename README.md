@@ -1,15 +1,18 @@
 # 🏥 Q-Transplant v4 — National Organ Transplant Allocation & Intelligence System
 
 **Team 13 | Mini Project III 2026-27**
-**Department of Artificial Intelligence & Machine Learning**
+**Department of Computer Science & Engineering (Artificial Intelligence)**
+**UG B.Tech CSE AI**
 
 ---
 
-## 👤 Team Member
+## 👥 Team Members
 
-| Name | Roll No | Role |
-|------|---------|------|
-| **Aravindh** | [Your Roll No] | Full Stack Developer & AI Engineer |
+| Name | Roll Number | Department |
+|------|-------------|------------|
+| **Aravindh A** | 24623134 | UG B.Tech CSE AI |
+| **Jovin Roy S** | 24623116 | UG B.Tech CSE AI |
+| **Priyan E** | 24623122 | UG B.Tech CSE AI |
 
 ---
 
